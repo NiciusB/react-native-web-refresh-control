@@ -21,9 +21,7 @@ function setCustomFlatListWeb() {
       <ScrollView
         {...props}
         //eslint-disable-next-line react/prop-types
-        refreshControl={
-          <RefreshControl refreshing={props.refreshing} onRefresh={props.onRefresh} />
-        }
+        refreshControl={<RefreshControl refreshing={props.refreshing} onRefresh={props.onRefresh} />}
       />
     ),
   }

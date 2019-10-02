@@ -10,10 +10,14 @@ Drop-in RefreshControl component for web
 npm i react-native-web-refresh-control
 ```
 
+## Example
+
+https://snack.expo.io/@niciusb/refreshcontrol-example
+
 ## Usage
 
 `react-native-web-refresh-control` exports two properties:
 
 * `patchFlatListProps` is a function that you'll want to call  at some point, while loading your app. It replaces the default value of the refreshControl prop of `FlatList`
 
-* `RefreshControl` can be used to easily give `ScrollView` a pull-to-refresh. If you used `RefreshControl` imported from react-native, it would not work on the web
+* `RefreshControl` can be used to easily give `ScrollView` a pull-to-refresh functionality, just like the `RefreshControl` exported from react-native. However, if you used the `RefreshControl` from react-native, it would not work on the web. To see how to do this, check out this snack: https://snack.expo.io/@niciusb/refreshcontrol-example
