@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, Platform, ScrollView } from 'react-native'
 import CustomRefreshControl from './RefreshControl'
 
-export const RefreshControl = CustomRefreshControl
+export { CustomRefreshControl as RefreshControl }
 export function patchFlatListProps() {
   try {
     if (Platform.OS === 'web') {
@@ -21,7 +21,7 @@ function setCustomFlatListWeb() {
       <ScrollView
         {...props}
         //eslint-disable-next-line react/prop-types
-        refreshControl={<RefreshControl refreshing={props.refreshing} onRefresh={props.onRefresh} />}
+        refreshControl={<CustomRefreshControl refreshing={props.refreshing} onRefresh={props.onRefresh} />}
       />
     ),
   }

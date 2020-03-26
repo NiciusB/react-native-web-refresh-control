@@ -1,7 +1,7 @@
 {
   "name": "react-native-web-refresh-control",
   "version": "1.0.0",
-  "description": "An implementation of React Native's RefreshControl for web, since react-native-web does not provide one ATM",
+  "description": "An implementation of React Native's RefreshControl for web, since react-native-web currently does not provide one",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
