@@ -6,8 +6,6 @@ import {
   Animated,
   ActivityIndicator,
   findNodeHandle,
-  ViewPropTypes,
-  ColorPropType,
 } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -170,17 +168,16 @@ function RefreshControl({
 }
 
 RefreshControl.propTypes = {
-  ...ViewPropTypes,
-  colors: PropTypes.arrayOf(ColorPropType),
+  colors: PropTypes.array,
   enabled: PropTypes.bool,
   onRefresh: PropTypes.func,
-  progressBackgroundColor: ColorPropType,
+  progressBackgroundColor: PropTypes.any,
   progressViewOffset: PropTypes.number,
   refreshing: PropTypes.bool.isRequired,
   size: PropTypes.oneOf(['small', 'large']),
-  tintColor: ColorPropType,
+  tintColor: PropTypes.any,
   title: PropTypes.string,
-  titleColor: ColorPropType,
+  titleColor: PropTypes.any,
 }
 
 export default RefreshControl

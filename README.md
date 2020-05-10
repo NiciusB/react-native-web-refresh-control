@@ -10,6 +10,16 @@ Drop-in RefreshControl component for web
 npm i react-native-web-refresh-control
 ```
 
+#### If you're using Expo
+You don't need to change anything else
+
+#### If you're NOT using Expo
+You will need to configure webpack to parse JSX in `node_modules/react-native-web-refresh-control`.
+
+1. Eject from `react-scripts` with `npm run eject`.
+2. Modify the main `babel-loader` module in `config/webpack.config.js`.
+   * Replace `include: paths.appSrc,` with `include: [paths.appSrc, /node_modules\/react-native-web-refresh-control/],` 
+
 ## Example
 
 https://snack.expo.io/@niciusb/refreshcontrol-example
