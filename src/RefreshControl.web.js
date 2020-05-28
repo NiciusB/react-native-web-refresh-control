@@ -1,18 +1,25 @@
 import React, { useRef, useEffect, useCallback, useMemo } from 'react'
-import {
-  View,
-  Text,
-  PanResponder,
-  Animated,
-  ActivityIndicator,
-  findNodeHandle,
-} from 'react-native'
+import { View, Text, PanResponder, Animated, ActivityIndicator, findNodeHandle } from 'react-native'
 import PropTypes from 'prop-types'
 
 const arrowIcon =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCQYHLCTylhV1AAAAjklEQVQ4y2P8z0AaYCJRPX4NsyNWM5Ok4R/n+/noWhjx+2F20n8HwcTQv0T7IXUe4wFUWwh6Gl0LEaGEqoWoYEXWQmQ8ILQwEh/TkBBjme3HIESkjn+Mv9/vJjlpkOwkom2AxTmRGhBJhCgNyCmKCA2oCZCgBvT0ykSacgIaZiaiKydoA7pykiKOSE+jAwADZUnJjMWwUQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wOS0wNlQwNzo0NDozNiswMjowMAZN3oQAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDktMDZUMDc6NDQ6MzYrMDI6MDB3EGY4AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg=='
 
-function RefreshControl({
+RefreshControl.propTypes = {
+  colors: PropTypes.array,
+  enabled: PropTypes.bool,
+  onRefresh: PropTypes.func,
+  progressBackgroundColor: PropTypes.any,
+  progressViewOffset: PropTypes.number,
+  refreshing: PropTypes.bool.isRequired,
+  size: PropTypes.oneOf(['small', 'large']),
+  tintColor: PropTypes.any,
+  title: PropTypes.string,
+  titleColor: PropTypes.any,
+  style: PropTypes.any,
+  children: PropTypes.any,
+}
+export default function RefreshControl({
   refreshing,
   tintColor,
   colors,
@@ -135,8 +142,8 @@ function RefreshControl({
     []
   )
   const newContentContainerStyle = useMemo(
-    () => [children.props.children.style, { transform: [{ translateY: pullDownSwipeMargin.current }] }],
-    [children.props.children.style]
+    () => [children.props.children.props.style, { transform: [{ translateY: pullDownSwipeMargin.current }] }],
+    [children.props.children.props.style]
   )
   const newChildren = React.cloneElement(
     children,
@@ -166,21 +173,6 @@ function RefreshControl({
     </View>
   )
 }
-
-RefreshControl.propTypes = {
-  colors: PropTypes.array,
-  enabled: PropTypes.bool,
-  onRefresh: PropTypes.func,
-  progressBackgroundColor: PropTypes.any,
-  progressViewOffset: PropTypes.number,
-  refreshing: PropTypes.bool.isRequired,
-  size: PropTypes.oneOf(['small', 'large']),
-  tintColor: PropTypes.any,
-  title: PropTypes.string,
-  titleColor: PropTypes.any,
-}
-
-export default RefreshControl
 
 function withAnimated(WrappedComponent) {
   const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component'
