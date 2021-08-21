@@ -13,7 +13,7 @@ export function patchFlatListProps(options = {}) {
   }
 }
 
-function setCustomFlatListWeb() {
+function setCustomFlatListWeb(options) {
   FlatList.defaultProps = {
     ...FlatList.defaultProps,
     //eslint-disable-next-line react/display-name
