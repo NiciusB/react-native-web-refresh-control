@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-refresh-control",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "An implementation of React Native's RefreshControl for web, since react-native-web currently does not provide one",
   "main": "src/index.js",
   "scripts": {
