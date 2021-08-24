@@ -44,3 +44,28 @@ import App from './App'
 patchFlatListProps()
 registerRootComponent(App)
 ```
+
+## Customize flat list refresh control for web
+
+* `patchFlatListProps` takes optional `options` to customize the refresh control:
+* To customize refresh control for iOS and Android, please see [RefreshControl API](https://reactnative.dev/docs/refreshcontrol)
+
+| option     | Type                | Description                                                                              | default                          |
+|------------|---------------------|------------------------------------------------------------------------------------------|----------------------------------|
+| colors     | array               | If tintColor is not defined, it uses the first color in the array for refresh indicator. |                                  |
+| enabled    | boolean             | Whether the pull to refresh functionality is enabled.                                    | true                             |
+| size       | RefreshControl.SIZE | Size of the refresh indicator.                                                           | RefreshLayoutConsts.SIZE.DEFAULT |
+| tintColor  | color               | The color of the refresh indicator.                                                      |                                  |
+| title      | string              | The title displayed under the refresh indicator.                                         |                                  |
+| titleColor | color               | The color of the refresh indicator title.                                                |                                  |                 |                                  |
+
+* Example
+```
+// index.js
+import { patchFlatListProps } from 'react-native-web-refresh-control'
+
+import App from './App'
+
+// make refresh control red
+patchFlatListProps({tintColor: 'red'})
+```
