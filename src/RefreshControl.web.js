@@ -75,11 +75,12 @@ export default function RefreshControl({
     PanResponder.create({
       onStartShouldSetPanResponder: () => false,
       onStartShouldSetPanResponderCapture: () => false,
-      onMoveShouldSetPanResponder: () => {
+      onMoveShouldSetPanResponder: (_,gestureState) => {
         if (!containerRef.current) return false
         const containerDOM = findNodeHandle(containerRef.current)
         if (!containerDOM) return false
         return containerDOM.children[0].scrollTop === 0
+        && (Math.abs(gestureState.dy) > Math.abs(gestureState.dx) * 2 && Math.abs(gestureState.vy) > Math.abs(gestureState.vx) * 2.5)
       },
       onMoveShouldSetPanResponderCapture: () => false,
       onPanResponderMove: (_, gestureState) => {
