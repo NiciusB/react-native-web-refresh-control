@@ -75,7 +75,7 @@ export default function RefreshControl({
     PanResponder.create({
       onStartShouldSetPanResponder: () => false,
       onStartShouldSetPanResponderCapture: () => false,
-      onMoveShouldSetPanResponder: () => {
+      onMoveShouldSetPanResponder: (_,gestureState) => {
         if (!containerRef.current) return false
         const containerDOM = findNodeHandle(containerRef.current)
         if (!containerDOM) return false
